@@ -1,0 +1,51 @@
+{%- liquid
+  assign card_product = product
+  assign ratio_class = 'product-card__image-wrap--square'
+  if settings.card_image_ratio == 'portrait'
+    assign ratio_class = 'product-card__image-wrap--portrait'
+  endif
+-%}
+
+<div class="product-card">
+  <a href="{{ card_product.url }}" class="product-card__link">
+    <div class="product-card__image-wrap {{ ratio_class }}">
+      {% if card_product.featured_image %}
+        <img
+          class="product-card__image product-card__image--primary"
+          src="{{ card_product.featured_image | image_url: width: 800 }}"
+          alt="{{ card_product.featured_image.alt | escape }}"
+          loading="lazy"
+          width="800"
+          height="{% if settings.card_image_ratio == 'portrait' %}1000{% else %}800{% endif %}">
+        {% if card_product.images[1] %}
+          <img
+            class="product-card__image product-card__image--secondary"
+            src="{{ card_product.images[1] | image_url: width: 800 }}"
+            alt=""
+            loading="lazy">
+        {% endif %}
+      {% else %}
+        <div class="product-card__placeholder"></div>
+      {% endif %}
+
+      {% if card_product.compare_at_price > card_product.price %}
+        <span class="product-card__badge">Sale</span>
+      {% endif %}
+    </div>
+
+    <div class="product-card__info">
+      {% if settings.show_vendor and card_product.vendor != blank %}
+        <p class="product-card__vendor">{{ card_product.vendor }}</p>
+      {% endif %}
+      <p class="product-card__title">{{ card_product.title }}</p>
+      <p class="product-card__price">
+        {% if card_product.compare_at_price > card_product.price %}
+          <span class="product-card__price--sale">{{ card_product.price | money }}</span>
+          <span class="product-card__price--compare">{{ card_product.compare_at_price | money }}</span>
+        {% else %}
+          {{ card_product.price | money }}
+        {% endif %}
+      </p>
+    </div>
+  </a>
+</div>

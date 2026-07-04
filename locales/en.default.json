@@ -1,0 +1,22 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Search the atelier…"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Selection",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Selection",
+      "empty": "Your selection is currently empty.",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to Checkout"
+    }
+  }
+}

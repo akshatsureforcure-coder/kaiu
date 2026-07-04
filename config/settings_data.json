@@ -1,0 +1,17 @@
+{
+  "current": {
+    "color_background": "#0A0908",
+    "color_surface": "#131110",
+    "color_text": "#F3EDE1",
+    "color_text_muted": "#A79E8F",
+    "color_accent": "#B08D57",
+    "color_accent_light": "#D4B483",
+    "color_border": "#2A2622",
+    "heading_scale": 100,
+    "body_scale": 100,
+    "page_width": 1440,
+    "spacing_sections": 120,
+    "card_image_ratio": "square",
+    "show_vendor": false
+  }
+}

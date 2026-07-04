@@ -1,0 +1,46 @@
+<section class="section our-picks page-width">
+  <div class="section-heading section-heading--center">
+    {% if section.settings.eyebrow != blank %}
+      <p class="section-heading__eyebrow reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h1 class="section-heading__title reveal">{{ section.settings.heading }}</h1>
+    {% if section.settings.text != blank %}
+      <div class="our-picks__intro reveal">{{ section.settings.text }}</div>
+    {% endif %}
+  </div>
+
+  {% if section.settings.collection != blank and section.settings.collection.products.size > 0 %}
+    <div class="product-grid product-grid--4">
+      {% for product in section.settings.collection.products %}
+        <div class="reveal">{% render 'product-card', product: product %}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="product-grid product-grid--4">
+      {% for i in (1..8) %}
+        <div class="product-card reveal">
+          <div class="product-card__image-wrap product-card__image-wrap--square">
+            <div class="product-card__placeholder"></div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__title">Coming Soon</p>
+            <p class="product-card__price">&mdash;</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <p class="our-picks__empty">New pieces are on their way — check back soon.</p>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Products page",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Products" },
+    { "type": "richtext", "id": "text", "label": "Intro text", "default": "<p>Every piece is hand-turned and finished in small batches. Browse what's available now.</p>" },
+    { "type": "collection", "id": "collection", "label": "Collection to display", "info": "Leave blank to show placeholder cards until products are added" }
+  ]
+}
+{% endschema %}

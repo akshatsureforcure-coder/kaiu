@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "about-content",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "Where Wood Meets Art",
+        "intro": "<p>KAIU began with a simple frustration: that the tools we use for the ritual of a good drink are so rarely made with the same care as the drink itself. What started with a single lathe and a stack of reclaimed timber has become a small studio dedicated to one idea — that a bar tool should be considered, not just functional, and built to be handed down rather than replaced.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

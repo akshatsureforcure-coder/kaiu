@@ -1,0 +1,36 @@
+<section class="section collection-listing page-width">
+  <div class="section-heading">
+    <h1 class="section-heading__title reveal">
+      {% if search.performed %}
+        Results for "{{ search.terms }}"
+      {% else %}
+        Search
+      {% endif %}
+    </h1>
+  </div>
+
+  {% if search.performed %}
+    {% if search.results_count > 0 %}
+      <div class="product-grid product-grid--4">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            <div class="reveal">{% render 'product-card', product: item %}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="collection-listing__empty">No results found for "{{ search.terms }}".</p>
+    {% endif %}
+  {% else %}
+    <form action="{{ routes.search_url }}" method="get" class="header-search__form" style="max-width:480px;">
+      <input type="search" name="q" placeholder="Search the atelier…" aria-label="Search">
+      <button type="submit">{% render 'icon-search' %}</button>
+    </form>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Search results"
+}
+{% endschema %}

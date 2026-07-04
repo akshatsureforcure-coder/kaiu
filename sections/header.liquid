@@ -1,0 +1,115 @@
+<header class="site-header" data-header>
+  <div class="site-header__inner page-width">
+
+    <button class="header-menu-toggle" data-menu-toggle aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {% if section.settings.logo != blank %}
+        <img
+          src="{{ section.settings.logo | image_url: width: 320 }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          loading="eager">
+      {% else %}
+        <img
+          src="{{ 'kaiu-logo-header.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          loading="eager">
+      {% endif %}
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      <ul>
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}"{% if link.active %} class="is-active"{% endif %}>{{ link.title }}</a>
+            {% if link.links != blank %}
+              <ul class="site-header__submenu">
+                {% for child in link.links %}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="header-icon-btn" data-search-toggle aria-label="Search">
+        {% render 'icon-search' %}
+      </button>
+      <button class="header-icon-btn header-cart-btn" data-cart-toggle aria-label="Cart">
+        {% render 'icon-bag' %}
+        <span class="header-cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="header-search" data-search-panel>
+    <form action="{{ routes.search_url }}" method="get" class="header-search__form page-width">
+      <input type="search" name="q" placeholder="Search the atelier…" aria-label="Search" value="{{ search.terms | escape }}">
+      <button type="submit">{% render 'icon-search' %}</button>
+      <button type="button" class="header-search__close" data-search-toggle aria-label="Close search">{% render 'icon-close' %}</button>
+    </form>
+  </div>
+
+  <div class="mobile-nav" data-mobile-nav aria-hidden="true">
+    <div class="mobile-nav__overlay" data-menu-toggle></div>
+    <div class="mobile-nav__panel">
+      <div class="mobile-nav__header">
+        <a href="{{ routes.root_url }}" class="mobile-nav__logo">
+          <img src="{{ 'kaiu-logo-header.png' | asset_url }}" alt="{{ shop.name }}" width="110">
+        </a>
+        <button class="header-icon-btn" data-menu-toggle aria-label="Close menu">{% render 'icon-close' %}</button>
+      </div>
+
+      <ul class="mobile-nav__links">
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links != blank %}
+              <ul>
+                {% for child in link.links %}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image (optional — leave blank for wordmark)"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 260,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 140
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

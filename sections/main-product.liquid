@@ -1,0 +1,132 @@
+<section class="product-detail page-width">
+  <div class="product-detail__gallery" data-product-gallery>
+    <div class="product-detail__main-image">
+      {% if product.featured_image %}
+        <img
+          src="{{ product.featured_image | image_url: width: 1400 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          data-main-image
+          id="ProductMainImage">
+      {% else %}
+        <div class="product-detail__placeholder"></div>
+      {% endif %}
+    </div>
+    {% if product.images.size > 1 %}
+      <div class="product-detail__thumbs">
+        {% for image in product.images %}
+          <button class="product-detail__thumb {% if forloop.first %}is-active{% endif %}" data-thumb data-full="{{ image | image_url: width: 1400 }}">
+            <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | escape }}" loading="lazy">
+          </button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="product-detail__info">
+    {% if product.vendor != blank %}
+      <p class="product-detail__vendor">{{ product.vendor }}</p>
+    {% endif %}
+    <h1 class="product-detail__title">{{ product.title }}</h1>
+
+    <p class="product-detail__price" data-product-price>
+      {% if product.compare_at_price > product.price %}
+        <span class="product-card__price--sale">{{ product.price | money }}</span>
+        <span class="product-card__price--compare">{{ product.compare_at_price | money }}</span>
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </p>
+
+    {% if product.description != blank %}
+      <div class="product-detail__description">{{ product.description }}</div>
+    {% endif %}
+
+    {% form 'product', product, data-product-form: '' %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-variant-id>
+
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          <div class="product-option" data-option-index="{{ forloop.index0 }}">
+            <p class="product-option__label">{{ option.name }}</p>
+            <div class="product-option__values">
+              {% for value in option.values %}
+                <button
+                  type="button"
+                  class="product-option__value {% if value == option.selected_value %}is-active{% endif %}"
+                  data-option-value
+                  data-option-index="{{ forloop.parentloop.index0 }}"
+                  data-value="{{ value | escape }}">
+                  {{ value }}
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endunless %}
+
+      <div class="product-detail__qty-add">
+        <div class="qty-selector">
+          <button type="button" data-qty-decrease aria-label="Decrease quantity">&minus;</button>
+          <input type="number" name="quantity" value="1" min="1" data-qty-input aria-label="Quantity">
+          <button type="button" data-qty-increase aria-label="Increase quantity">&plus;</button>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full" data-add-to-cart {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+          <span data-add-to-cart-text>
+            {% if product.selected_or_first_available_variant.available %}Add to Selection{% else %}Sold Out{% endif %}
+          </span>
+        </button>
+      </div>
+    {% endform %}
+
+    <div class="product-accordion">
+      {% if section.settings.details_content != blank %}
+      <details class="product-accordion__item" open>
+        <summary>Details &amp; Materials {% render 'icon-chevron' %}</summary>
+        <div class="product-accordion__body">{{ section.settings.details_content }}</div>
+      </details>
+      {% endif %}
+      {% if section.settings.care_content != blank %}
+      <details class="product-accordion__item">
+        <summary>Care Instructions {% render 'icon-chevron' %}</summary>
+        <div class="product-accordion__body">{{ section.settings.care_content }}</div>
+      </details>
+      {% endif %}
+      {% if section.settings.shipping_content != blank %}
+      <details class="product-accordion__item">
+        <summary>Shipping &amp; Returns {% render 'icon-chevron' %}</summary>
+        <div class="product-accordion__body">{{ section.settings.shipping_content }}</div>
+      </details>
+      {% endif %}
+    </div>
+  </div>
+
+  {%- comment -%} variant data for JS-driven option switching {%- endcomment -%}
+  <script type="application/json" data-product-json>
+    {{ product.variants | json }}
+  </script>
+</section>
+
+{% if section.settings.show_related and recommendations.performed and recommendations.products_count > 0 %}
+<section class="section related-products page-width">
+  <div class="section-heading">
+    <h2 class="section-heading__title reveal">You May Also Like</h2>
+  </div>
+  <div class="product-grid product-grid--4">
+    {% for product in recommendations.products %}
+      <div class="reveal">{% render 'product-card', product: product %}</div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product information",
+  "settings": [
+    { "type": "richtext", "id": "details_content", "label": "Details & materials" },
+    { "type": "richtext", "id": "care_content", "label": "Care instructions" },
+    { "type": "richtext", "id": "shipping_content", "label": "Shipping & returns" },
+    { "type": "checkbox", "id": "show_related", "label": "Show related products", "default": true }
+  ]
+}
+{% endschema %}

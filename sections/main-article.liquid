@@ -1,0 +1,16 @@
+<article class="section article-page page-width">
+  <p class="section-heading__eyebrow reveal">{{ article.published_at | date: '%B %d, %Y' }}</p>
+  <h1 class="article-page__title reveal">{{ article.title }}</h1>
+  {% if article.image %}
+    <div class="article-page__image reveal">
+      <img src="{{ article.image | image_url: width: 1600 }}" alt="{{ article.title | escape }}" loading="eager">
+    </div>
+  {% endif %}
+  <div class="article-page__content reveal">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{
+  "name": "Article"
+}
+{% endschema %}

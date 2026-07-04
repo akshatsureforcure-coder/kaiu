@@ -1,0 +1,78 @@
+<footer class="site-footer">
+  <div class="page-width">
+
+    <div class="site-footer__main">
+      <div class="site-footer__brand">
+        <img src="{{ 'kaiu-logo-header.png' | asset_url }}" alt="{{ shop.name }}" class="site-footer__logo" loading="lazy">
+        {% if section.settings.tagline != blank %}
+          <p class="site-footer__tagline">{{ section.settings.tagline }}</p>
+        {% endif %}
+      </div>
+
+      <div class="site-footer__columns">
+        <div class="site-footer__column">
+          <p class="site-footer__column-title">Navigate</p>
+          <ul>
+            {% for link in section.settings.menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+            <li><a href="{{ pages['contact'].url }}">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__column">
+          <p class="site-footer__column-title">Policies</p>
+          <ul>
+            {% for link in section.settings.policy_menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__social">
+      {% if settings.social_instagram != blank %}
+        <a href="{{ settings.social_instagram }}" class="site-footer__social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+          {% render 'icon-instagram' %}
+        </a>
+      {% endif %}
+      {% if settings.social_email != blank %}
+        <a href="mailto:{{ settings.social_email }}" class="site-footer__social-icon" aria-label="Email">
+          {% render 'icon-email' %}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      <p class="site-footer__copyright">Crafted in small batches.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Crafted for the ritual of drinking. Quiet objects in solid wood, finished by hand in small batches."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigate menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "policy_menu",
+      "label": "Policies menu",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

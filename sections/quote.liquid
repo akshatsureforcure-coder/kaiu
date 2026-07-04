@@ -1,0 +1,23 @@
+<section class="section quote-section">
+  <div class="page-width">
+    <blockquote class="quote-section__quote reveal">
+      <p>{{ section.settings.quote }}</p>
+      {% if section.settings.attribution != blank %}
+        <cite>{{ section.settings.attribution }}</cite>
+      {% endif %}
+    </blockquote>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quote",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "A bar tool should feel like it has always belonged in your hand." },
+    { "type": "text", "id": "attribution", "label": "Attribution", "default": "— KAIU Studio" }
+  ],
+  "presets": [
+    { "name": "Quote" }
+  ]
+}
+{% endschema %}

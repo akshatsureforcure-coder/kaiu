@@ -1,0 +1,49 @@
+<section class="section craftsmanship">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="section-heading section-heading--center">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-heading__eyebrow reveal">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h2 class="section-heading__title reveal">{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="craftsmanship__grid">
+      {% for block in section.blocks %}
+        <div class="craftsmanship__item reveal" {{ block.shopify_attributes }}>
+          <span class="craftsmanship__index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <h3 class="craftsmanship__title">{{ block.settings.title }}</h3>
+          <p class="craftsmanship__text">{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Craftsmanship",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why KAIU" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Made to be kept" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Solid Hardwood" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Sourced from sustainably managed forests, selected for grain and density." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "feature", "settings": { "title": "Solid Hardwood", "text": "Sourced from sustainably managed forests, selected for grain and density." } },
+      { "type": "feature", "settings": { "title": "Hand-Finished", "text": "Sanded through eight grits and sealed with food-safe oil, by hand." } },
+      { "type": "feature", "settings": { "title": "Built to Last", "text": "Every piece is guaranteed to outlive the bar cart it stands on." } }
+    ]
+  }
+}
+{% endschema %}

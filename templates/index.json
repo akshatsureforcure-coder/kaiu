@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "featured": { "type": "featured-collection" },
+    "story": {
+      "type": "brand-story",
+      "settings": { "image_position": "left" }
+    },
+    "craft": { "type": "craftsmanship" },
+    "quote": { "type": "quote" }
+  },
+  "order": ["hero", "featured", "story", "craft", "quote"]
+}

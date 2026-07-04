@@ -1,0 +1,26 @@
+<section class="section blog-listing page-width">
+  <div class="section-heading">
+    <p class="section-heading__eyebrow reveal">Journal</p>
+    <h1 class="section-heading__title reveal">{{ blog.title }}</h1>
+  </div>
+  <div class="blog-listing__grid">
+    {% for article in blog.articles %}
+      <a href="{{ article.url }}" class="blog-card reveal">
+        {% if article.image %}
+          <div class="blog-card__image-wrap">
+            <img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title | escape }}" loading="lazy">
+          </div>
+        {% endif %}
+        <p class="blog-card__date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+        <p class="blog-card__title">{{ article.title }}</p>
+        <p class="blog-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog listing"
+}
+{% endschema %}

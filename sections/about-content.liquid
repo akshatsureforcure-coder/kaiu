@@ -1,0 +1,65 @@
+<section class="about-hero">
+  <div class="about-hero__media">
+    {% if section.settings.image %}
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+    {% else %}
+      <img src="{{ 'kaiu-hero.jpg' | asset_url }}" alt="{{ shop.name }} — handcrafted in the workshop" loading="eager">
+    {% endif %}
+    <div class="hero__scrim"></div>
+  </div>
+  <div class="about-hero__content page-width">
+    <p class="section-heading__eyebrow reveal">{{ section.settings.eyebrow }}</p>
+    <h1 class="about-hero__heading reveal">{{ section.settings.heading }}</h1>
+  </div>
+</section>
+
+<section class="section about-intro page-width">
+  <div class="about-intro__text reveal">{{ section.settings.intro }}</div>
+</section>
+
+{% for block in section.blocks %}
+  <section class="section brand-story {% cycle 'brand-story--reverse', '' %}" {{ block.shopify_attributes }}>
+    <div class="page-width brand-story__grid">
+      <div class="brand-story__media reveal">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url: width: 1400 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+        {% else %}
+          <div class="brand-story__placeholder"></div>
+        {% endif %}
+      </div>
+      <div class="brand-story__content reveal">
+        <h2 class="brand-story__heading">{{ block.settings.title }}</h2>
+        <div class="brand-story__text">{{ block.settings.text }}</div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+{% schema %}
+{
+  "name": "About content",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built by hand, since the first cut" },
+    { "type": "richtext", "id": "intro", "label": "Intro paragraph", "default": "<p>KAIU began in a small workshop with a single lathe and a conviction that a bar tool could be as considered as the drink it helped make. Every piece that leaves our workshop still carries that same intent.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Story chapter",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "The Timber" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>We work in walnut, olive, and rosewood — chosen for density, grain, and how each ages with use.</p>" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "chapter", "settings": { "title": "The Timber", "text": "<p>Every piece begins as raw hardwood — walnut, olive, and rosewood, chosen for density, grain, and how gracefully each ages with daily use. We source in small quantities, seasoning each batch for months before it's ever touched by a blade.</p>" } },
+      { "type": "chapter", "settings": { "title": "The Hands", "text": "<p>From there, it's entirely manual — turned on the lathe, shaped by eye, sanded through eight grits, and sealed with food-safe oil. No two pieces are identical, because no two are made the same way twice.</p>" } }
+    ]
+  }
+}
+{% endschema %}
