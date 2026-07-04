@@ -142,13 +142,13 @@ h1, h2, h3, h4 {
 }
 .site-header__inner {
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 32px;
   height: 92px;
 }
-.site-header__logo { justify-self: start; }
-.site-header__logo img { height: auto; max-width: 260px; display: block; }
+.site-header__logo { grid-column: 2; justify-self: center; }
+.site-header__logo img { height: auto; max-width: 190px; display: block; }
 .site-header__wordmark {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -156,7 +156,7 @@ h1, h2, h3, h4 {
   font-size: 1.9rem;
   letter-spacing: 0.04em;
 }
-.site-header__nav { justify-self: center; }
+.site-header__nav { grid-column: 1; justify-self: start; }
 .site-header__nav > ul { display: flex; gap: 40px; }
 .site-header__nav a {
   font-size: 0.78rem;
@@ -187,7 +187,7 @@ h1, h2, h3, h4 {
 .site-header__submenu li:not(:last-child) { border-bottom: none; }
 .site-header__submenu a { display: block; padding: 12px 18px; font-size: 0.74rem; }
 
-.site-header__actions { justify-self: end; display: flex; align-items: center; gap: 20px; }
+.site-header__actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 20px; }
 .header-icon-btn { position: relative; color: var(--color-text); display: flex; padding: 6px; transition: color 0.3s ease; }
 .header-icon-btn:hover { color: var(--color-accent-light); }
 .header-cart-count {
@@ -565,9 +565,7 @@ body.nav-open { overflow: hidden; }
   .product-detail__gallery { position: static; }
   .cart-page__form { grid-template-columns: 1fr; }
   .site-header__nav { display: none; }
-  .header-menu-toggle { display: flex; }
-  .site-header__inner { grid-template-columns: auto 1fr auto; }
-  .site-header__logo { justify-self: center; }
+  .header-menu-toggle { display: flex; grid-column: 1; justify-self: start; }
 }
 
 @media (max-width: 720px) {
