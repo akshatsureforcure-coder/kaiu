@@ -526,28 +526,6 @@ body.nav-open { overflow: hidden; }
 .about-intro__text p { margin: 0; }
 
 /* ==========================================================================
-   Contact page
-   ========================================================================== */
-.contact-page { padding-top: 72px; }
-.contact-page__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-.contact-page__heading { font-size: calc(2.6rem * var(--heading-scale, 1)); margin: 14px 0 20px; }
-.contact-page__text { color: var(--color-text-muted); margin-bottom: 36px; }
-.contact-page__text p { margin: 0 0 14px; }
-.contact-page__detail { display: flex; gap: 16px; font-size: 0.92rem; padding: 14px 0; border-top: 1px solid var(--color-border); margin: 0; }
-.contact-page__detail span { color: var(--color-text-muted); min-width: 70px; flex-shrink: 0; }
-.contact-page__detail:last-child { border-bottom: 1px solid var(--color-border); }
-
-.form-field { margin-bottom: 22px; }
-.form-field label { display: block; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 10px; }
-.form-field input, .form-field textarea {
-  width: 100%; background: transparent; border: 1px solid var(--color-border);
-  color: var(--color-text); padding: 14px 16px; resize: vertical; font-family: inherit;
-}
-.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--color-accent); }
-.form-success { color: var(--color-accent-light); font-size: 0.95rem; }
-.form-error { color: #c98a6b; font-size: 0.9rem; margin-bottom: 12px; }
-
-/* ==========================================================================
    Generic page / blog / article / 404
    ========================================================================== */
 .generic-page { padding-top: 72px; max-width: 780px; }
@@ -574,23 +552,6 @@ body.nav-open { overflow: hidden; }
 .error-404__text { color: var(--color-text-muted); margin-bottom: 32px; }
 
 /* ==========================================================================
-   Password page
-   ========================================================================== */
-.password-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-.password-page__inner { max-width: 400px; width: 100%; text-align: center; }
-.password-page__logo { width: 160px; height: auto; margin: 0 auto 40px; display: block; }
-.password-page__heading { font-size: 2.2rem; margin: 10px 0 20px; }
-.password-page__text { color: var(--color-text-muted); margin-bottom: 32px; }
-.password-page__text p { margin: 0; }
-.password-page form .form-field { text-align: left; }
-
-/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -601,7 +562,6 @@ body.nav-open { overflow: hidden; }
   .brand-story__grid { grid-template-columns: 1fr; gap: 40px; }
   .brand-story--reverse .brand-story__grid { direction: ltr; }
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
-  .contact-page__grid { grid-template-columns: 1fr; gap: 48px; }
   .product-detail__gallery { position: static; }
   .cart-page__form { grid-template-columns: 1fr; }
   .site-header__nav { display: none; }
