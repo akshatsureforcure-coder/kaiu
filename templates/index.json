@@ -23,9 +23,9 @@
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "The Collection",
+        "eyebrow": "",
         "heading": "Signature Pieces",
-        "collection": "frontpage",
+        "collection": "our-picks",
         "products_to_show": 4,
         "columns": "4",
         "link_label": "View all",
@@ -34,7 +34,15 @@
     },
     "story": {
       "type": "brand-story",
-      "settings": { "image_position": "left", "button_url": "/pages/our-story" }
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jul_8_2026_03_39_29_PM.png",
+        "image_position": "left",
+        "eyebrow": "Our Craft",
+        "heading": "Grain by grain, by hand",
+        "text": "<p>Every KAIU piece begins as raw timber, seasoned for months before it ever meets a blade. Our artisans shape, sand, and oil each tool by hand — no two grains are alike, and neither are the pieces they become.</p>",
+        "button_label": "Our Story",
+        "button_url": "/pages/our-story"
+      }
     },
     "craft": {
       "type": "craftsmanship",
