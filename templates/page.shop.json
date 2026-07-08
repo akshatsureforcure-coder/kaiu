@@ -1,9 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "products-page",
-      "settings": { "collection": 371694469275 }
+      "settings": {
+        "eyebrow": "The Collection",
+        "heading": "Products",
+        "text": "<p>Every piece is hand-turned and finished in small batches. Browse what's available now.</p>",
+        "collection": "frontpage"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
