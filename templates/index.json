@@ -1,7 +1,10 @@
 {
   "sections": {
     "hero": { "type": "hero" },
-    "featured": { "type": "featured-collection" },
+    "featured": {
+      "type": "featured-collection",
+      "settings": { "collection": 371694469275 }
+    },
     "story": {
       "type": "brand-story",
       "settings": { "image_position": "left" }

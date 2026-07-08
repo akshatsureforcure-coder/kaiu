@@ -1,6 +1,9 @@
 {
   "sections": {
-    "main": { "type": "products-page" }
+    "main": {
+      "type": "products-page",
+      "settings": { "collection": 371694469275 }
+    }
   },
   "order": ["main"]
 }
