@@ -349,6 +349,9 @@ body.nav-open { overflow: hidden; }
 .hero__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.35) 100%); }
 .hero__content { position: relative; max-width: 620px; }
 .hero .page-width { margin: 0; }
+@media (min-width: 1025px) {
+  .hero .page-width { padding-left: 90px; }
+}
 .hero__eyebrow { font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-accent-light); margin-bottom: 18px; }
 .hero__heading { font-size: calc(4rem * var(--heading-scale, 1)); line-height: 1.08; margin-bottom: 22px; color: #fff; }
 .hero__subheading { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 480px; margin-bottom: 34px; }
