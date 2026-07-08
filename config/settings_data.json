@@ -41,6 +41,13 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {}
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "USE CODE KAIU10 FOR 10% OFF YOUR FIRST ORDER",
+          "speed": 40
+        }
       }
     },
     "content_for_index": []
