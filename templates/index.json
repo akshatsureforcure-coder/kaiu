@@ -1,16 +1,68 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero": { "type": "hero" },
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "height": 720,
+        "eyebrow": "Handcrafted in small batches",
+        "heading": "The Art of the Pour",
+        "subheading": "Wooden bar tools shaped by hand, finished for a lifetime at the table.",
+        "button_label": "Explore the Collection",
+        "button_url": "shopify://pages/shop"
+      }
+    },
     "featured": {
       "type": "featured-collection",
-      "settings": { "collection": 371694469275 }
+      "settings": {
+        "eyebrow": "The Collection",
+        "heading": "Signature Pieces",
+        "collection": "frontpage",
+        "products_to_show": 4,
+        "columns": "4",
+        "link_label": "View all",
+        "link_url": ""
+      }
     },
     "story": {
       "type": "brand-story",
-      "settings": { "image_position": "left" }
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "Our Craft",
+        "heading": "Grain by grain, by hand",
+        "text": "<p>Every KAIU piece begins as raw timber, seasoned for months before it ever meets a blade. Our artisans shape, sand, and oil each tool by hand — no two grains are alike, and neither are the pieces they become.</p>",
+        "button_label": "Our Story",
+        "button_url": ""
+      }
     },
-    "craft": { "type": "craftsmanship" },
-    "quote": { "type": "quote" }
+    "craft": {
+      "type": "craftsmanship",
+      "settings": {
+        "eyebrow": "Why KAIU",
+        "heading": "Made to be kept"
+      }
+    },
+    "quote": {
+      "type": "quote",
+      "settings": {
+        "quote": "A bar tool should feel like it has always belonged in your hand.",
+        "attribution": "— KAIU Studio"
+      }
+    }
   },
-  "order": ["hero", "featured", "story", "craft", "quote"]
+  "order": [
+    "hero",
+    "featured",
+    "story",
+    "craft",
+    "quote"
+  ]
 }
