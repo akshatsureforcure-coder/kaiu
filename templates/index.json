@@ -23,7 +23,7 @@
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "The Collection",
+        "eyebrow": "",
         "heading": "Signature Pieces",
         "collection": "our-picks",
         "products_to_show": 4,
