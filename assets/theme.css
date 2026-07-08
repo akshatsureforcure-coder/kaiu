@@ -129,6 +129,43 @@ h1, h2, h3, h4 {
 .our-picks__empty { text-align: center; color: var(--color-text-muted); padding: 60px 0; }
 
 /* ==========================================================================
+   Announcement bar
+   ========================================================================== */
+.announcement-bar {
+  background: var(--color-accent);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.announcement-bar__track {
+  display: flex;
+  width: max-content;
+  animation: kaiu-marquee var(--marquee-duration, 25s) linear infinite;
+}
+.announcement-bar__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.announcement-bar__item {
+  display: inline-block;
+  padding: 10px 40px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-background);
+  white-space: nowrap;
+}
+@keyframes kaiu-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar__track { animation: none; }
+}
+
+/* ==========================================================================
    Header
    ========================================================================== */
 .site-header {

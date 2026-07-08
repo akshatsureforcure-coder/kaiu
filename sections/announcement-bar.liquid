@@ -1,0 +1,38 @@
+<div class="announcement-bar">
+  <div class="announcement-bar__track" style="--marquee-duration: {{ section.settings.speed }}s;">
+    <div class="announcement-bar__group">
+      {% for i in (1..8) %}
+        <span class="announcement-bar__item">{{ section.settings.text }}</span>
+      {% endfor %}
+    </div>
+    <div class="announcement-bar__group" aria-hidden="true">
+      {% for i in (1..8) %}
+        <span class="announcement-bar__item">{{ section.settings.text }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Message",
+      "default": "USE CODE KAIU10 FOR 10% OFF YOUR FIRST ORDER"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll speed (lower = faster)",
+      "default": 25
+    }
+  ]
+}
+{% endschema %}
