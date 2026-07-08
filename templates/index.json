@@ -34,7 +34,14 @@
     },
     "story": {
       "type": "brand-story",
-      "settings": { "image_position": "left", "button_url": "/pages/our-story" }
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "Our Craft",
+        "heading": "Grain by grain, by hand",
+        "text": "<p>Every KAIU piece begins as raw timber, seasoned for months before it ever meets a blade. Our artisans shape, sand, and oil each tool by hand — no two grains are alike, and neither are the pieces they become.</p>",
+        "button_label": "Our Story",
+        "button_url": "/pages/our-story"
+      }
     },
     "craft": {
       "type": "craftsmanship",
