@@ -10,13 +10,8 @@
 {
   "sections": {
     "main": {
-      "type": "products-page",
-      "settings": {
-        "eyebrow": "The Collection",
-        "heading": "Products",
-        "text": "<p>Every piece is hand-turned and finished in small batches. Browse what's available now.</p>",
-        "collection": "frontpage"
-      }
+      "type": "main-product",
+      "settings": {}
     }
   },
   "order": [
