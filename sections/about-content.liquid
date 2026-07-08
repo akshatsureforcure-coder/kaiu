@@ -3,7 +3,7 @@
     {% if section.settings.image %}
       <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
     {% else %}
-      <div class="hero__placeholder"></div>
+      <img src="{{ 'kaiu-hero.jpg' | asset_url }}" alt="{{ shop.name }} — handcrafted in the workshop" loading="eager">
     {% endif %}
     <div class="hero__scrim"></div>
   </div>
@@ -57,8 +57,8 @@
   ],
   "default": {
     "blocks": [
-      { "type": "chapter", "settings": { "title": "The Timber" } },
-      { "type": "chapter", "settings": { "title": "The Hands" } }
+      { "type": "chapter", "settings": { "title": "The Timber", "text": "<p>Every piece begins as raw hardwood — walnut, olive, and rosewood, chosen for density, grain, and how gracefully each ages with daily use. We source in small quantities, seasoning each batch for months before it's ever touched by a blade.</p>" } },
+      { "type": "chapter", "settings": { "title": "The Hands", "text": "<p>From there, it's entirely manual — turned on the lathe, shaped by eye, sanded through eight grits, and sealed with food-safe oil. No two pieces are identical, because no two are made the same way twice.</p>" } }
     ]
   }
 }

@@ -7,7 +7,7 @@
     },
     "story": {
       "type": "brand-story",
-      "settings": { "image_position": "left" }
+      "settings": { "image_position": "left", "button_url": "/pages/our-story" }
     },
     "craft": { "type": "craftsmanship" },
     "quote": { "type": "quote" }
