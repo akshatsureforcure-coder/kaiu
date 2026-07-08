@@ -46,7 +46,7 @@
         "type": "announcement-bar",
         "settings": {
           "text": "USE CODE KAIU10 FOR 10% OFF YOUR FIRST ORDER",
-          "speed": 40
+          "speed": 50
         }
       }
     },
