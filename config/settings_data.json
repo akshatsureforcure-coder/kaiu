@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_background": "#0A0908",
@@ -12,6 +21,28 @@
     "page_width": 1440,
     "spacing_sections": 120,
     "card_image_ratio": "square",
-    "show_vendor": false
+    "show_vendor": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_width": 110,
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Crafted for the ritual of drinking. Quiet objects in solid wood, finished by hand in small batches.",
+          "menu": "main-menu-footer",
+          "policy_menu": "footer"
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
   }
 }
